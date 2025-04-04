@@ -13,7 +13,8 @@ sudo docker build buildenv -t pauyos-buildenv
 ## Usage
 to run the operating system:
 ```bash
-sudo docker run --rm -it -v "$(pwd)":/root/env pauyos-buildenv;sudo qemu-system-x86_64 dist/x86_64/kernel.iso ```
+sudo docker run --rm -it -v "$(pwd)":/root/env pauyos-buildenv;sudo qemu-system-x86_64 dist/x86_64/kernel.iso
+```
 ```bash
 make build-x86_64;exit
 ```
