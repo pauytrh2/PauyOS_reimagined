@@ -2,6 +2,12 @@
 
 #include "keyboard.h"
 #include "print.h"
+#include <stdint.h>
+
+void disable_cursor() {
+    outb(0x3D4, 0x0A);
+    outb(0x3D5, 0x20);
+}
 
 static const char scancode_to_ascii[] = {
     0,  27, '1','2','3','4','5','6','7','8','9','0','-','=', '\b', // 0x00 - 0x0E
