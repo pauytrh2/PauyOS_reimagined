@@ -2,6 +2,7 @@
 
 #include "keyboard.h"
 #include "print.h"
+#include "shell.h"
 #include <stdint.h>
 
 void disable_cursor() {
@@ -19,7 +20,7 @@ static const char scancode_to_ascii[] = {
 
 void keyboard_loop() {
     while (1) {
-        if (inb(0x64) & 1) { // if there is data in buffer
+        if (inb(0x64) & 1) {
             uint8_t scancode = inb(0x60);
 
             if (scancode < sizeof(scancode_to_ascii)) {
@@ -27,6 +28,10 @@ void keyboard_loop() {
                 if (c) {
                     char str[2] = {c, '\0'};
                     print_str(str);
+
+                    if (c == '\n') {
+                        print_prompt_command();
+                    }
                 }
             }
         }
