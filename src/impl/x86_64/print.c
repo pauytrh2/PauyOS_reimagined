@@ -17,8 +17,8 @@ uint8_t color = PRINT_COLOR_WHITE | PRINT_COLOR_BLACK << 4;
 
 void clear_row(size_t row) {
     struct Char empty = (struct Char) {
-        character: ' ',
-        color: color,
+        .character =  ' ',
+        .color =  color,
     };
 
     for (size_t col = 0; col < NUM_COLS; col++) {
@@ -61,14 +61,14 @@ void print_char(char character) {
     }
 
     buffer[col + NUM_COLS * row] = (struct Char) {
-        character: (uint8_t) character,
-        color: color,
+        .character =  (uint8_t) character,
+        .color =  color,
     };
 
     col++;
 }
 
-void print_str(char* str) {
+void print_str(const char* str) {
     for (size_t i = 0; 1; i++) {
         char character = (uint8_t) str[i];
 

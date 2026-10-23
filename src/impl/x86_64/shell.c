@@ -11,7 +11,7 @@ void print_prompt_command() {
 }
 
 void process_command(const char* input) {
-    if (strcmp(input, "help") == 0) { // TODO replace this with a switch statment
+    if (strcmp(input, "help") == 0) {
         print_str("Available commands:\n");
         print_str("help - Show this message\n");
         print_str("clear - Clear the screen\n");
@@ -20,6 +20,6 @@ void process_command(const char* input) {
     } else if (strcmp(input, "") == 0) {
         // do nothing
     } else {
-        print_str("Unknown command. Type 'help'.\n");
+        print_str("Unknown command. Type 'help' to see all commands.\n");
     }
 }
